@@ -35,7 +35,7 @@ public class Delete extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delete);
 
-        deleteID = (EditText) findViewById(R.id.username_param);
+        deleteID = (EditText) findViewById(R.id.user_id_param);
         btnDelete = (Button) findViewById(R.id.btn_delete);
         pd = new ProgressDialog(Delete.this);
 
@@ -81,7 +81,7 @@ public class Delete extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> map = new HashMap<>();
-                map.put("username", deleteID.getText().toString());
+                map.put("id", deleteID.getText().toString());
                 return map;
             }
         };

@@ -14,8 +14,8 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="username"
-        android:id="@+id/username_param"/>
+        android:hint="User ID"
+        android:id="@+id/user_id_param"/>
     <Button
         android:text="Delete"
         android:layout_width="match_parent"

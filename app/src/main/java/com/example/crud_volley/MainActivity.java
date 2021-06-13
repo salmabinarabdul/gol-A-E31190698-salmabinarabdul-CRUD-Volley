@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                                 ModelData md = new ModelData();
                                 md.setUsername(data.getString("username"));
                                 md.setId(data.getString("id"));
-                                md.setGrup(data.getString("grup"));
+                                md.setGrup(data.getString("id_grup"));
                                 md.setNama(data.getString("nama"));
                                 md.setPassword(data.getString("password"));
                                 mItems.add(md);

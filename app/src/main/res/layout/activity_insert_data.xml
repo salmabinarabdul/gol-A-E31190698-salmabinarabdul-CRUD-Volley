@@ -7,6 +7,16 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/tiluserid">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ID User"
+            android:id="@+id/inp_id"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/tilusername">
         <EditText
             android:layout_width="match_parent"
@@ -41,7 +51,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="grup"
+        android:hint="Grup"
         android:id="@+id/inp_grup"/>
     </com.google.android.material.textfield.TextInputLayout>
     <LinearLayout

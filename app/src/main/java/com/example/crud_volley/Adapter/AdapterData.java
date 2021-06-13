@@ -61,7 +61,8 @@ public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData> {
                     Intent update = new Intent(context, InsertData.class);
                     update.putExtra("update",1);
                     update.putExtra("username",md.getUsername());
-                    update.putExtra("grup",md.getGrup());
+                    update.putExtra("id",md.getId());
+                    update.putExtra("id_grup",md.getGrup());
                     update.putExtra("nama",md.getNama());
                     update.putExtra("password",md.getPassword());
 

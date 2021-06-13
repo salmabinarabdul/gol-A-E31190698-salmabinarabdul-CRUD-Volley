@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class InsertData extends AppCompatActivity {
-    EditText username,grup,nama,password;
+    EditText id_user,username,grup,nama,password;
     Button btnbatal,btnsimpan;
     ProgressDialog pd;
     @Override
@@ -37,12 +37,14 @@ public class InsertData extends AppCompatActivity {
         Intent data = getIntent();
         final int update = data.getIntExtra("update",0);
         String intent_username = data.getStringExtra("username");
-        String intent_grup = data.getStringExtra("grup");
+        String intent_id = data.getStringExtra("id");
+        String intent_grup = data.getStringExtra("id_grup");
         String intent_nama = data.getStringExtra("nama");
         String intent_password = data.getStringExtra("password");
         /*end get data from intent*/
 
         username =(EditText)findViewById(R.id.inp_username);
+        id_user =(EditText)findViewById(R.id.inp_id);
         grup =(EditText)findViewById(R.id.inp_grup);
         nama =(EditText)findViewById(R.id.inp_nama);
         password =(EditText)findViewById(R.id.inp_password);
@@ -55,10 +57,12 @@ public class InsertData extends AppCompatActivity {
         {
             btnsimpan.setText("update Data");
             username.setText(intent_username);
-            username.setVisibility(View.GONE);
             grup.setText(intent_grup);
             nama.setText(intent_nama);
+            id_user.setText(intent_id);
             password.setText(intent_password);
+        } else {
+            id_user.setVisibility(View.GONE);
         }
 
         btnsimpan.setOnClickListener(new View.OnClickListener(){
@@ -66,20 +70,20 @@ public class InsertData extends AppCompatActivity {
             public void onClick(View view){
                 if(update ==1){
                     Update_data();
-            }else{
-                simpanData();
+                }else{
+                    simpanData();
+                }
             }
-        }
-    });
+        });
 
-btnbatal.setOnClickListener(new View.OnClickListener(){
-        @Override
-        public void onClick(View view){
-            Intent main = new Intent(InsertData.this,MainActivity.class);
-            startActivity(main);
+        btnbatal.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view){
+                    Intent main = new Intent(InsertData.this,MainActivity.class);
+                    startActivity(main);
+                }
+            });
         }
-    });
-}
 
     private void Update_data()
     {
@@ -108,7 +112,7 @@ btnbatal.setOnClickListener(new View.OnClickListener(){
                     @Override
                     public void onErrorResponse(VolleyError error){
                         pd.cancel();
-                        Toast.makeText(InsertData.this, "pesan: Gagal Insert Data",
+                        Toast.makeText(InsertData.this, "pesan: Gagal Update Data",
                                 Toast.LENGTH_SHORT).show();
                     }
                 }){
@@ -116,9 +120,10 @@ btnbatal.setOnClickListener(new View.OnClickListener(){
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String,String>map = new HashMap<>();
                 map.put("username",username.getText().toString());
-                map.put("grup",grup.getText().toString());
                 map.put("nama",nama.getText().toString());
                 map.put("password",password.getText().toString());
+                map.put("grup",grup.getText().toString());
+                map.put("id",id_user.getText().toString());
 
                 return map;
             }
@@ -162,9 +167,10 @@ btnbatal.setOnClickListener(new View.OnClickListener(){
             protected Map<String, String>getParams()throws AuthFailureError{
                 Map<String,String> map = new HashMap<>();
                 map.put("username",username.getText().toString());
-                map.put("grup",grup.getText().toString());
                 map.put("nama",nama.getText().toString());
                 map.put("password",password.getText().toString());
+                map.put("grup",grup.getText().toString());
+
 
                 return map;
 
